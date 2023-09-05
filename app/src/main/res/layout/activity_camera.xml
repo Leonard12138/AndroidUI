@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#484848">
+
+
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/cameraButton"
+        android:layout_toStartOf="@id/CameraSwitchButton"
+        android:text="@string/app_name" />
+
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/CameraSwitchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:text="@string/app_name"
+        android:textSize="16dp"
+        app:kswBackColor="#34C659"
+        app:kswTextAdjust="-2dp"
+        app:kswTextExtra="8dp"
+        app:kswThumbColor="#FFFFFF" />
+    <!-- Video Record Button -->
+    <Button
+        android:id="@+id/cameraButton"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:background="@drawable/video_record_button"
+        android:text="@string/video_record_button_text"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+</RelativeLayout>

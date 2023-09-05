@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="camera_button_text">Camera</string>
+    <string name="app_logo_text">App Logo</string>
+    <string name="video_record_button_text">Video Record</string>
+</resources>
