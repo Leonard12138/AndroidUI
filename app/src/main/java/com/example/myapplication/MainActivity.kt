@@ -47,8 +47,8 @@ class MainActivity : ComponentActivity() {
         cameraPreview = findViewById(R.id.cameraPreview)
         cameraBtn = findViewById(R.id.cameraButton)
 
-        // Request camera permission and initialize CameraX when the button is clicked
-        cameraBtn.setOnClickListener {
+        // Request camera permission and initialize CameraX
+
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                     this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERM_CODE
                 )
             }
-        }
+
 
         cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
