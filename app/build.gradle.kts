@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -70,4 +71,16 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation ("com.kyleduo.switchbutton:library:2.1.0")
+
+
+    implementation ("androidx.camera:camera-camera2:1.1.0-alpha08")
+    implementation ("androidx.camera:camera-lifecycle:1.1.0-alpha08")
+    implementation ("androidx.camera:camera-view:1.0.0-alpha30")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-common-java8:2.3.1")
+    implementation ("androidx.core:core-ktx:1.6.0")
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+
 }
