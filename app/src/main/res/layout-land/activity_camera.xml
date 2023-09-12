@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#484848">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/cameraPreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="60dp"
+        android:layout_toStartOf="@id/seekBarLayout"/>
+
+
+
+    <!-- SeekBar Layout (Left of LinearLayout) -->
+    <LinearLayout
+        android:id="@+id/seekBarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@id/buttons_layout"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="20dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <SeekBar
+                android:id="@+id/seeker"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:layout_gravity="center"
+                android:thumbTint="@color/white"/>
+
+        </FrameLayout>
+        <TextView
+            android:id="@+id/zoomText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zoom"
+            android:textColor="#6A6A6A"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="130dp"
+        android:layout_height="300dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/cameraButton"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/video_record_button"
+            android:text="@string/video_record_button_text"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_gravity="end"> <!-- Set layout_gravity to "end" to float the RadioGroup to the right -->
+
+            <TextView
+                android:id="@+id/Lens_text"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:text="Lens"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+            <!-- Front Button -->
+            <RadioButton
+                android:id="@+id/frontButton"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:button="@drawable/custom_radio_button"
+                android:text="Front"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textAllCaps="false"
+                android:background="@drawable/top_rounded_button_background"
+                android:gravity="center"/>
+
+            <!-- 0.5x Button -->
+            <RadioButton
+                android:id="@+id/halfButton"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:button="@drawable/custom_radio_button"
+                android:text="0.5x"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                android:background="@color/black"
+                android:gravity="center"/>
+
+            <!-- 1x Button -->
+            <RadioButton
+                android:id="@+id/oneButton"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:button="@drawable/custom_radio_button"
+                android:text="1x"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textAllCaps="false"
+                android:background="@color/black"
+                android:gravity="center"/>
+
+            <!-- 2x Button -->
+            <RadioButton
+                android:id="@+id/twoButton"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:button="@drawable/custom_radio_button"
+                android:text="2x"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textAllCaps="false"
+                android:background="@drawable/bottom_rounded_button_background"
+                android:gravity="center"/> <!-- Use gravity to center the text horizontally -->
+
+        </RadioGroup>
+
+
+
+        <!-- Camera Switch Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/CameraText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Camera"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:layout_alignParentBottom="true"/>
+
+            <com.kyleduo.switchbutton.SwitchButton
+                android:id="@+id/CameraSwitchButton"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                app:kswBackColor="@color/switch_color_states"
+                app:kswThumbColor="#FFFFFF" />
+        </RelativeLayout>
+
+
+
+        <!-- Alignment Switch Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Alignment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Alignment"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:layout_alignParentBottom="true"/>
+
+            <com.kyleduo.switchbutton.SwitchButton
+                android:id="@+id/AlignmentSwitchButton"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:text="@string/app_name"
+                android:textSize="16dp"
+                app:kswBackColor="@color/switch_color_states"
+                app:kswTextAdjust="-2dp"
+                app:kswTextExtra="8dp"
+                app:kswThumbColor="#FFFFFF" />
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+    <!-- Leave Room Button -->
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/leave_room_button_background"
+        android:text="@string/leave_room_button_text"
+        android:textAllCaps="false"
+        android:textColor="#227FDE"
+        android:layout_below="@id/buttons_layout"
+        android:layout_alignParentRight="true"
+        android:textSize="18dp"/>
+
+    <!-- First TextView (Camera 2) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:text="Camera 2"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/textView2" />
+
+    <!-- Second TextView (Phone Manufacturer) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:text="Phone Manufacturer"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>

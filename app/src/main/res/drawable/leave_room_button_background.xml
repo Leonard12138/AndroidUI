@@ -1,0 +1,16 @@
+<!-- res/drawable/custom_button_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background shape with rounded corners -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#484848" />
+        </shape>
+    </item>
+
+    <!-- Border line -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:color="#227FDE" android:width="2dp" />
+        </shape>
+    </item>
+</layer-list>

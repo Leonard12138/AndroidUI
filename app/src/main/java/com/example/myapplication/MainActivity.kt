@@ -15,6 +15,8 @@ import android.widget.Button
 import android.widget.ImageView
 
 import android.Manifest
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 
 import android.view.TextureView
@@ -64,6 +66,12 @@ class MainActivity : ComponentActivity() {
             val cameraProvider = cameraProviderFuture?.get()
             bindPreview(cameraProvider)
         }, ContextCompat.getMainExecutor(this))
+
+        cameraBtn.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
     private fun bindPreview(cameraProvider: ProcessCameraProvider?) {

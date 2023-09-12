@@ -1,0 +1,25 @@
+<!-- custom_radio_button.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected state -->
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:left="380dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#227FDE"/> <!-- Set the color for the selected state -->
+                    <corners android:radius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- Default state -->
+    <item android:state_checked="false">
+        <layer-list>
+            <item android:left="0dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent"/> <!-- Set the color for the default state (transparent in this case) -->
+                    <corners android:radius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

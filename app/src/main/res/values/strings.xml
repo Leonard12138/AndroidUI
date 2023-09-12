@@ -3,4 +3,5 @@
     <string name="camera_button_text">Camera</string>
     <string name="app_logo_text">App Logo</string>
     <string name="video_record_button_text">Video Record</string>
+    <string name="leave_room_button_text">Leave Room</string>
 </resources>
