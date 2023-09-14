@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 90% Black on Left -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" />
+        </shape>
+    </item>
+    <!-- 10% Blue on Right -->
+    <item android:left="60dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#227FDE" />
+        </shape>
+    </item>
+</layer-list>

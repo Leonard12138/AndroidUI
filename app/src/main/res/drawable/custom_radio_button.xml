@@ -1,23 +1,31 @@
-<!-- custom_radio_button.xml -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Selected state -->
+    <!-- Checked state -->
     <item android:state_checked="true">
         <layer-list>
-            <item android:left="380dp" android:right="0dp">
+            <!-- Background with blue bar -->
+            <item android:left="0dp" android:right="5dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="#227FDE"/> <!-- Set the color for the selected state -->
-                    <corners android:radius="0dp"/>
+                    <solid android:color="#227FDE" /> <!-- Blue color -->
+                    <corners android:radius="0dp" />
+                </shape>
+            </item>
+            <!-- Transparent background for the rest of the button -->
+            <item android:left="5dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" /> <!-- Transparent color -->
+                    <corners android:radius="0dp" />
                 </shape>
             </item>
         </layer-list>
     </item>
-    <!-- Default state -->
+    <!-- Unchecked state -->
     <item android:state_checked="false">
         <layer-list>
+            <!-- Transparent background for the entire button -->
             <item android:left="0dp" android:right="0dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="@android:color/transparent"/> <!-- Set the color for the default state (transparent in this case) -->
-                    <corners android:radius="0dp"/>
+                    <solid android:color="@android:color/transparent" /> <!-- Transparent color -->
+                    <corners android:radius="0dp" />
                 </shape>
             </item>
         </layer-list>

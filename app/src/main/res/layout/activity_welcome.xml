@@ -9,8 +9,6 @@
     <!-- Camera Preview -->
 
 
-    <!-- Centered Logo -->
-
 
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraPreview"
@@ -41,7 +39,7 @@
     <Button
         android:id="@+id/cameraButton"
         android:layout_width="197dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/logoImageView"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
@@ -53,6 +51,7 @@
         android:text="@string/camera_button_text"
         android:textAllCaps="false"
         android:textColor="#8671FC"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

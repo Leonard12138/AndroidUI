@@ -6,14 +6,32 @@
     android:background="#484848">
 
 
-    <androidx.camera.view.PreviewView
-        android:id="@+id/cameraPreview"
+    <!-- Add a FrameLayout to overlay the "Display Disabled" text on the PreviewView -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="60dp"
-        android:layout_toStartOf="@id/seekBarLayout"/>
+        android:layout_toStartOf="@id/seekBarLayout">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="60dp"
+            android:layout_toStartOf="@id/seekBarLayout" />
+
+        <!-- Add this TextView for "Display Disabled" centered in the FrameLayout -->
+        <TextView
+            android:id="@+id/displayDisabledText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Display Disabled"
+            android:textSize="20sp"
+            android:textColor="#F80505"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
 
 
 
@@ -94,58 +112,95 @@
             <!-- Front Button -->
             <RadioButton
                 android:id="@+id/frontButton"
-                android:layout_width="55dp"
+                android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:button="@drawable/custom_radio_button"
+                android:background="@drawable/top_rounded_button_background"
+                android:button="@android:color/transparent"
                 android:text="Front"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"
                 android:textAllCaps="false"
-                android:background="@drawable/top_rounded_button_background"
-                android:gravity="center"/>
+                android:gravity="center"
+                />
 
             <!-- 0.5x Button -->
             <RadioButton
                 android:id="@+id/halfButton"
-                android:layout_width="55dp"
+                android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:button="@drawable/custom_radio_button"
                 android:text="0.5x"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="false"
                 android:textSize="16dp"
-                android:background="@color/black"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"/>
 
             <!-- 1x Button -->
             <RadioButton
                 android:id="@+id/oneButton"
-                android:layout_width="55dp"
+                android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:button="@drawable/custom_radio_button"
                 android:text="1x"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"
                 android:textAllCaps="false"
-                android:background="@color/black"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
                 android:gravity="center"/>
 
             <!-- 2x Button -->
             <RadioButton
                 android:id="@+id/twoButton"
-                android:layout_width="55dp"
+                android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:button="@drawable/custom_radio_button"
                 android:text="2x"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"
                 android:textAllCaps="false"
                 android:background="@drawable/bottom_rounded_button_background"
+                android:button="@android:color/transparent"
                 android:gravity="center"/> <!-- Use gravity to center the text horizontally -->
 
         </RadioGroup>
 
+<!--        <RadioGroup-->
+<!--            android:id="@+id/daily_weekly_button_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginLeft="8dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:layout_marginRight="8dp"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radio0"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:background="@drawable/radio_flat_selector"-->
+<!--                android:button="@android:color/transparent"-->
+<!--                android:checked="true"-->
+<!--                android:text="Daily" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radio1"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:background="@drawable/radio_flat_selector"-->
+<!--                android:button="@android:color/transparent"-->
+<!--                android:text="Weekly"-->
+<!--                android:textColor="@color/white"/>-->
+
+<!--        </RadioGroup>-->
 
         <!-- Camera Switch Button -->
         <RelativeLayout
@@ -212,7 +267,7 @@
     </LinearLayout>
     <!-- Leave Room Button -->
     <Button
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="40dp"
         android:background="@drawable/leave_room_button_background"
         android:text="@string/leave_room_button_text"
@@ -220,6 +275,7 @@
         android:textColor="#227FDE"
         android:layout_below="@id/buttons_layout"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
         android:textSize="18dp"/>
 
     <!-- First TextView (Camera 2) -->
