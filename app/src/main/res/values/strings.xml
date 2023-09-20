@@ -4,4 +4,16 @@
     <string name="app_logo_text">App Logo</string>
     <string name="video_record_button_text">Video Record</string>
     <string name="leave_room_button_text">Leave Room</string>
+    <string name="blurOverlay">blurOverlay</string>
+    <string name="display_disabled">Display Disabled</string>
+    <string name="zoom">Zoom</string>
+    <string name="lens">Lens</string>
+    <string name="front">Front</string>
+    <string name="_0_5x">0.5x</string>
+    <string name="_1x">1x</string>
+    <string name="_2x">2x</string>
+    <string name="camera">Camera</string>
+    <string name="alignment">Alignment</string>
+    <string name="camera_2">Camera 2</string>
+    <string name="phone_manufacturer">Phone Manufacturer</string>
 </resources>

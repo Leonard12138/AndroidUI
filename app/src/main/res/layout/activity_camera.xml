@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="57dp"
         android:text="@string/app_name"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:kswBackColor="@color/switch_color_states"
         app:kswTextAdjust="-2dp"
         app:kswTextExtra="8dp"

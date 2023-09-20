@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.myapplication
 
 import android.Manifest
@@ -45,9 +47,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-        cameraPreview = findViewById(R.id.cameraPreview);
-        cameraBtn = findViewById(R.id.cameraButton);
-        blurOverlayImageView = findViewById(R.id.blurOverlay);
+        cameraPreview = findViewById(R.id.cameraPreview)
+        cameraBtn = findViewById(R.id.cameraButton)
+        blurOverlayImageView = findViewById(R.id.blurOverlay)
 
         // Request camera permission and initialize CameraX
 
@@ -133,7 +135,7 @@ class MainActivity : ComponentActivity() {
                     val inputBitmap =
                         imageProxy.image?.toBitmap(rotationDegrees) ?: return@setAnalyzer
                     // Apply blur to the Bitmap
-                    val blurredBitmap = blurRenderScript(inputBitmap, 20)
+                    val blurredBitmap = blurRenderScript(inputBitmap)
                     // Set the blurred Bitmap to the ImageView
                     runOnUiThread {
                         blurOverlayImageView.setImageBitmap(blurredBitmap)
@@ -185,6 +187,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults: IntArray
     ) {
@@ -198,7 +201,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun blurRenderScript(smallBitmap: Bitmap, radius: Int): Bitmap? {
+    private fun blurRenderScript(smallBitmap: Bitmap): Bitmap? {
         val defaultBitmapScale = 0.1f
         val width = (smallBitmap.width * defaultBitmapScale).roundToInt()
         val height = (smallBitmap.height * defaultBitmapScale).roundToInt()
@@ -208,7 +211,7 @@ class MainActivity : ComponentActivity() {
         val theIntrinsic = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript))
         val tmpIn = Allocation.createFromBitmap(renderScript, inputBitmap)
         val tmpOut = Allocation.createFromBitmap(renderScript, outputBitmap)
-        theIntrinsic.setRadius(radius.toFloat())
+        theIntrinsic.setRadius(20.toFloat())
         theIntrinsic.setInput(tmpIn)
         theIntrinsic.forEach(tmpOut)
         tmpOut.copyTo(outputBitmap)
@@ -251,6 +254,6 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         const val CAMERA_PERM_CODE = 101
-        const val CAMERA_REQUEST_CODE = 102
+//        const val CAMERA_REQUEST_CODE = 102
     }
 }

@@ -18,15 +18,14 @@
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="60dp"
-            android:layout_toStartOf="@id/seekBarLayout" />
+            android:layout_marginBottom="60dp" />
 
         <!-- Add this TextView for "Display Disabled" centered in the FrameLayout -->
         <TextView
             android:id="@+id/displayDisabledText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Display Disabled"
+            android:text="@string/display_disabled"
             android:textSize="20sp"
             android:textColor="#F80505"
             android:layout_gravity="center"
@@ -65,9 +64,9 @@
             android:id="@+id/zoomText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zoom"
+            android:text="@string/zoom"
             android:textColor="#6A6A6A"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -104,9 +103,9 @@
                 android:id="@+id/Lens_text"
                 android:layout_width="55dp"
                 android:layout_height="35dp"
-                android:text="Lens"
+                android:text="@string/lens"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:gravity="center"/>
 
             <!-- Front Button -->
@@ -116,9 +115,9 @@
                 android:layout_height="35dp"
                 android:background="@drawable/top_rounded_button_background"
                 android:button="@android:color/transparent"
-                android:text="Front"
+                android:text="@string/front"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:gravity="center"
                 />
@@ -128,10 +127,10 @@
                 android:id="@+id/halfButton"
                 android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:text="0.5x"
+                android:text="@string/_0_5x"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="false"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/radio_flat_selector"
                 android:button="@android:color/transparent"/>
@@ -141,9 +140,9 @@
                 android:id="@+id/oneButton"
                 android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:text="1x"
+                android:text="@string/_1x"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:background="@drawable/radio_flat_selector"
                 android:button="@android:color/transparent"
@@ -154,9 +153,9 @@
                 android:id="@+id/twoButton"
                 android:layout_width="65dp"
                 android:layout_height="35dp"
-                android:text="2x"
+                android:text="@string/_2x"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:background="@drawable/bottom_rounded_button_background"
                 android:button="@android:color/transparent"
@@ -213,16 +212,16 @@
                 android:id="@+id/CameraText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Camera"
+                android:text="@string/camera"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:layout_alignParentBottom="true"/>
 
             <com.kyleduo.switchbutton.SwitchButton
                 android:id="@+id/CameraSwitchButton"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 app:kswBackColor="@color/switch_color_states"
                 app:kswThumbColor="#FFFFFF" />
         </RelativeLayout>
@@ -240,19 +239,19 @@
                 android:id="@+id/Alignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Alignment"
+                android:layout_alignParentStart="true"
+                android:text="@string/alignment"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:layout_alignParentBottom="true"/>
 
             <com.kyleduo.switchbutton.SwitchButton
                 android:id="@+id/AlignmentSwitchButton"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:text="@string/app_name"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:kswBackColor="@color/switch_color_states"
                 app:kswTextAdjust="-2dp"
                 app:kswTextExtra="8dp"
@@ -274,18 +273,18 @@
         android:textAllCaps="false"
         android:textColor="#227FDE"
         android:layout_below="@id/buttons_layout"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:textSize="18dp"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:textSize="18sp"/>
 
     <!-- First TextView (Camera 2) -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
-        android:text="Camera 2"
+        android:text="@string/camera_2"
         android:textColor="#FFFFFF"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/textView2" />
 
@@ -294,9 +293,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:text="Phone Manufacturer"
+        android:text="@string/phone_manufacturer"
         android:textColor="#FFFFFF"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"/>

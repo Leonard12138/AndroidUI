@@ -2,34 +2,31 @@ package com.example.myapplication
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.camera.core.Camera
-import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraInfo
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.Preview
-import androidx.camera.core.ZoomState
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.common.util.concurrent.ListenableFuture
 import com.kyleduo.switchbutton.SwitchButton
-
+@ExperimentalGetImage
 class CameraActivity : ComponentActivity() {
     private lateinit var cameraPreview: PreviewView
     private lateinit var zoomSeekBar: SeekBar
     private var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>? = null
     private var isCameraOn = false
-    private var camera: Camera? = null // Add Camera reference
+    private var camera: Camera? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-    private var cameraControl: CameraControl? = null
     private var cameraInfo: CameraInfo? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +87,7 @@ class CameraActivity : ComponentActivity() {
 
         halfButton.setOnClickListener {
 //            if (cameraControl != null) {
-                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
+//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
 //                val zoomRatio = 0.25f * maxZoom // Adjust the zoom value as needed
                 camera?.cameraControl?.setZoomRatio(cameraInfo?.zoomState?.value?.minZoomRatio ?: 1.0f)
 //            }
@@ -98,7 +95,7 @@ class CameraActivity : ComponentActivity() {
 
         oneButton.setOnClickListener {
 //            if (cameraControl != null) {
-                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
+//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
 //                val zoomRatio = 0.5f * maxZoom // Adjust the zoom value as needed
                 camera?.cameraControl?.setLinearZoom(0.toFloat())
 //            }
@@ -106,7 +103,7 @@ class CameraActivity : ComponentActivity() {
 
         twoButton.setOnClickListener {
 //            if (cameraControl != null) {
-                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
+//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
 //                val zoomRatio = 0.5f * maxZoom // Adjust the zoom value as needed
                 camera?.cameraControl?.setLinearZoom(0.5.toFloat())
 //            }
