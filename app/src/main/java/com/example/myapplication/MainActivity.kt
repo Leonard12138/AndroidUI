@@ -133,7 +133,7 @@ class MainActivity : ComponentActivity() {
                     val inputBitmap =
                         imageProxy.image?.toBitmap(rotationDegrees) ?: return@setAnalyzer
                     // Apply blur to the Bitmap
-                    val blurredBitmap = blurRenderScript(inputBitmap, 10)
+                    val blurredBitmap = blurRenderScript(inputBitmap, 20)
                     // Set the blurred Bitmap to the ImageView
                     runOnUiThread {
                         blurOverlayImageView.setImageBitmap(blurredBitmap)
