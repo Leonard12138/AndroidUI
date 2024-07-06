@@ -16,4 +16,5 @@
     <string name="alignment">Alignment</string>
     <string name="camera_2">Camera 2</string>
     <string name="phone_manufacturer">Phone Manufacturer</string>
+    <string name="stop_record_button_text">Stop Recording</string>
 </resources>

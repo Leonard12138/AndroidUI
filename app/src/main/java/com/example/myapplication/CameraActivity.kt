@@ -1,8 +1,10 @@
 package com.example.myapplication
+
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
@@ -18,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.common.util.concurrent.ListenableFuture
 import com.kyleduo.switchbutton.SwitchButton
+
 @ExperimentalGetImage
 class CameraActivity : ComponentActivity() {
     private lateinit var cameraPreview: PreviewView
@@ -35,9 +38,10 @@ class CameraActivity : ComponentActivity() {
         cameraPreview = findViewById(R.id.cameraPreview)
         zoomSeekBar = findViewById(R.id.seeker)
         val cameraSwitchButton = findViewById<SwitchButton>(R.id.CameraSwitchButton)
-
+        val cameraButton: Button = findViewById(R.id.cameraButton)
 
         cameraSwitchButton.isChecked = false
+        cameraButton.isEnabled = false // Initially disable the video record button
 
         cameraSwitchButton.setOnCheckedChangeListener { _, isChecked ->
             isCameraOn = if (isChecked) {
@@ -54,13 +58,14 @@ class CameraActivity : ComponentActivity() {
                     val cameraProvider = cameraProviderFuture?.get()
                     bindPreview(cameraProvider)
                 }, ContextCompat.getMainExecutor(this))
+                cameraButton.isEnabled = true // Enable the video record button
                 true
             } else {
                 stopCamera()
+                cameraButton.isEnabled = false // Disable the video record button
                 false
             }
         }
-
 
         zoomSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -77,42 +82,39 @@ class CameraActivity : ComponentActivity() {
         val twoButton = findViewById<RadioButton>(R.id.twoButton)
         val frontButton = findViewById<RadioButton>(R.id.frontButton)
 
+        var isPressed = false
+
+        cameraButton.setOnClickListener {
+            if (isPressed) {
+                cameraButton.setBackgroundResource(R.drawable.custom_button_background)
+                cameraButton.setText(R.string.video_record_button_text)
+            } else {
+                cameraButton.setBackgroundResource(R.drawable.video_record_button_pressed)
+                cameraButton.setText(R.string.stop_record_button_text)
+            }
+            isPressed = !isPressed
+        }
+
         frontButton.setOnClickListener {
-            if (cameraSwitchButton.isChecked){
+            if (cameraSwitchButton.isChecked) {
                 cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
-                startCamera(CameraSelector.DEFAULT_FRONT_CAMERA);
+                startCamera(CameraSelector.DEFAULT_FRONT_CAMERA)
                 bindPreview(cameraProvider)
             }
         }
 
         halfButton.setOnClickListener {
-//            if (cameraControl != null) {
-//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
-//                val zoomRatio = 0.25f * maxZoom // Adjust the zoom value as needed
-                camera?.cameraControl?.setZoomRatio(cameraInfo?.zoomState?.value?.minZoomRatio ?: 1.0f)
-//            }
+            camera?.cameraControl?.setZoomRatio(cameraInfo?.zoomState?.value?.minZoomRatio ?: 1.0f)
         }
 
         oneButton.setOnClickListener {
-//            if (cameraControl != null) {
-//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
-//                val zoomRatio = 0.5f * maxZoom // Adjust the zoom value as needed
-                camera?.cameraControl?.setLinearZoom(0.toFloat())
-//            }
+            camera?.cameraControl?.setLinearZoom(0.toFloat())
         }
 
         twoButton.setOnClickListener {
-//            if (cameraControl != null) {
-//                val maxZoom = cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1.0f
-//                val zoomRatio = 0.5f * maxZoom // Adjust the zoom value as needed
-                camera?.cameraControl?.setLinearZoom(0.5.toFloat())
-//            }
+            camera?.cameraControl?.setLinearZoom(0.5.toFloat())
         }
-
-
     }
-
-
 
     private fun stopCamera() {
         val cameraProvider = cameraProviderFuture?.get()
@@ -126,7 +128,6 @@ class CameraActivity : ComponentActivity() {
 
     private fun startCamera(cameraSelector: CameraSelector) {
         val cameraProvider = cameraProviderFuture?.get()
-//        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
         val preview = Preview.Builder()
             .build()
@@ -146,16 +147,15 @@ class CameraActivity : ComponentActivity() {
         }
     }
 
-
     private fun bindPreview(cameraProvider: ProcessCameraProvider?) {
         // Configure the preview use case
         val preview = Preview.Builder().build()
 
-        if (cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA){
-            val cameraSelector = CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_FRONT).build()
-        }
-        else{
-            val cameraSelector = CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
+        // Update camera selector based on current selection
+        val updatedCameraSelector = if (cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA) {
+            CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_FRONT).build()
+        } else {
+            CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
         }
 
         // Connect the preview to the PreviewView
@@ -166,7 +166,7 @@ class CameraActivity : ComponentActivity() {
             cameraProvider?.unbindAll()
 
             // Bind the camera use cases to the cameraProvider
-            camera = cameraProvider?.bindToLifecycle(this, cameraSelector, preview)
+            camera = cameraProvider?.bindToLifecycle(this, updatedCameraSelector, preview)
         } catch (exc: Exception) {
             // Handle exceptions here
         }
@@ -175,8 +175,4 @@ class CameraActivity : ComponentActivity() {
     private fun allPermissionsGranted() = ActivityCompat.checkSelfPermission(
         this, Manifest.permission.CAMERA
     ) == PackageManager.PERMISSION_GRANTED
-
-
-
-
 }
