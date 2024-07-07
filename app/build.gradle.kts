@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.myapplication"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.myapplication"
@@ -73,14 +73,20 @@ dependencies {
     implementation ("com.kyleduo.switchbutton:library:2.1.0")
 
 
-    implementation ("androidx.camera:camera-camera2:1.1.0-alpha08")
-    implementation ("androidx.camera:camera-lifecycle:1.1.0-alpha08")
-    implementation ("androidx.camera:camera-view:1.0.0-alpha30")
+    implementation ("androidx.camera:camera-camera2:1.3.0-rc01")
+    implementation ("androidx.camera:camera-lifecycle:1.3.0-rc01")
+    implementation ("androidx.camera:camera-view:1.3.0-rc01")
     implementation ("androidx.lifecycle:lifecycle-viewmodel:2.3.1")
     implementation ("androidx.lifecycle:lifecycle-runtime:2.3.1")
     implementation ("androidx.lifecycle:lifecycle-livedata:2.3.1")
     implementation ("androidx.lifecycle:lifecycle-common-java8:2.3.1")
     implementation ("androidx.core:core-ktx:1.6.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("androidx.camera:camera-video:1.3.0-rc01")
 
+    //TCP
+//    implementation ('org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4')
+//    implementation ('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4')
+
+    implementation ("com.google.code.gson:gson:2.9.0")
 }

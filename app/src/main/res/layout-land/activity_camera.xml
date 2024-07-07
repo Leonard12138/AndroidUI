@@ -83,7 +83,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/cameraButton"
+            android:id="@+id/videoRecordButton"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/video_record_button"
